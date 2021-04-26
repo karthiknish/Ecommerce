@@ -50,7 +50,6 @@ const CardProduct = ({ product }) => {
           </div>
         </Link>
         <div className="bottomcard">
-          {console.log(product.name.length)}
           <span>
             {product.name.length > 18
               ? product.name.slice(0, 18) + "..."
