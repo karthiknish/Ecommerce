@@ -35,7 +35,7 @@ const Order = ({ match, history }) => {
     return (Math.round(num * 100) / 100).toFixed(2);
   };
   if (!loading) {
-    window.location.href("https://freshie-shopping.herokuapp.com/");
+    history.push("/");
     // order?.itemsPrice = addDecimals(
     //   order?.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
     // );
