@@ -42,9 +42,8 @@ const Order = ({ match, history }) => {
   useEffect(() => {
     if (!userInfo) {
       history.push("/login");
-    } else if (order === undefined) {
-      window.location.replace("https://freshie-shopping.herokuapp.com/");
     }
+
     const addPaypalscript = async () => {
       const { data: clientId } = await axios.get("/api/config/paypal ");
       const script = document.createElement("script");
@@ -70,6 +69,10 @@ const Order = ({ match, history }) => {
       } else {
         setsdkReady(true);
       }
+    } else if (!order.isEmail) {
+      window.location.href("https://freshie-shopping.herokuapp.com/");
+    } else if (order.isEmail) {
+      localStorage.removeItem("cartItems");
     }
   }, [
     dispatch,
@@ -79,7 +82,7 @@ const Order = ({ match, history }) => {
     successDeliver,
     userInfo,
     history,
-    order,
+    // order,
   ]);
   const successpaymenthandler = (paymentResult) => {
     dispatch(payOrder(orderId, paymentResult));

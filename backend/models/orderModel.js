@@ -41,6 +41,10 @@ const orderSchema = mongoose.Schema(
       required: true,
       default: 0.0,
     },
+    isEmail: {
+      type: Boolean,
+      default: false,
+    },
     shippingPrice: {
       type: Number,
       required: true,

@@ -22,7 +22,6 @@ const addorderitems = asyncHandler(async (req, res) => {
     const order = new Order({
       user: req.user._id,
       orderItems,
-
       shippingAddress,
       paymentMethod,
       itemsPrice,
@@ -31,8 +30,7 @@ const addorderitems = asyncHandler(async (req, res) => {
       totalPrice,
     });
     const createdOrder = await order.save();
-    console.log(createdOrder);
-    console.log(req.body);
+
     if (createdOrder) {
       var transporter = nodemailer.createTransport({
         service: "gmail",
@@ -58,6 +56,7 @@ const addorderitems = asyncHandler(async (req, res) => {
           console.log(error);
         } else {
           console.log("Email sent" + info.response);
+          createdOrder.update({}, { isEmail: true });
         }
       });
       res.status(201).json(createdOrder);
