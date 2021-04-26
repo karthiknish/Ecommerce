@@ -49,9 +49,9 @@ const addorderitems = asyncHandler(async (req, res) => {
           createdOrder._id
         } of item(s) ${req.body.orderItems.map((c) => c.name)} with price of ${
           req.body.totalPrice
-        } has been confirmed.You can complete your payment at <a target='_blank' href='https://freshie-shopping.herokuapp.com/order/${
+        } has been confirmed.You can complete your payment here 'https://freshie-shopping.herokuapp.com/order/${
           createdOrder.id
-        }>Here</a> `,
+        } `,
       };
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
