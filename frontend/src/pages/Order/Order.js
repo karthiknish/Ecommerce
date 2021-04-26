@@ -35,10 +35,10 @@ const Order = ({ match, history }) => {
     return (Math.round(num * 100) / 100).toFixed(2);
   };
   if (!loading) {
-    history.push("/");
-    // order?.itemsPrice = addDecimals(
-    //   order?.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
-    // );
+    // history.push("/");
+    order.itemsPrice = addDecimals(
+      order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+    );
   }
   useEffect(() => {
     if (!userInfo) {
