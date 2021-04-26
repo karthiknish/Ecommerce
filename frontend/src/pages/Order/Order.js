@@ -43,7 +43,7 @@ const Order = ({ match, history }) => {
     if (!userInfo) {
       history.push("/login");
     } else if (order === undefined) {
-      window.location.replace("http://localhost:3000");
+      window.location.replace("https://freshie-shopping.herokuapp.com/");
     }
     const addPaypalscript = async () => {
       const { data: clientId } = await axios.get("/api/config/paypal ");
