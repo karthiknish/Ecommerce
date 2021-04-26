@@ -35,9 +35,10 @@ const Order = ({ match, history }) => {
     return (Math.round(num * 100) / 100).toFixed(2);
   };
   if (!loading) {
-    order?.itemsPrice = addDecimals(
-      order?.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
-    );
+    window.location.href("https://freshie-shopping.herokuapp.com/");
+    // order?.itemsPrice = addDecimals(
+    //   order?.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+    // );
   }
   useEffect(() => {
     if (!userInfo) {
