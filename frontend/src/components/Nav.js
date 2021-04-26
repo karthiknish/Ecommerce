@@ -143,10 +143,9 @@ const Nav = () => {
           />
         )}
         <Link to="/cart">
-          {" "}
           <RiShoppingCart2Line className="iconCart allicon" size="26" />
           <div
-            style={{ right: `${userInfo.isAdmin && "210px"}` }}
+            style={{ right: `${userInfo?.isAdmin && "210px"}` }}
             className="dotcart allicon"
           >
             {incart}
