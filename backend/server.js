@@ -25,10 +25,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 app.get("/api/config/paypal", (req, res) =>
-  res.send(
-    process.env.PAYPAL_CLIENT_ID ||
-      "AVpUuQjeVyoJ27PSzwLB0nuiTvnoknYC9D9-GTFBEEhNYMFyHGS-GCXLYLNb95U8aoUYootYmuODWyr7"
-  )
+  res.send(process.env.PAYPAL_CLIENT_ID)
 );
 
 const __dirname = path.resolve();
