@@ -29,16 +29,17 @@ const CardProduct = ({ product }) => {
   };
   return (
     <>
-      <Link to={`/product/${product._id}`}>
-        <div
-          className="cardProduct"
-          onMouseOver={() => {
-            setShowbtn(true);
-          }}
-          onMouseLeave={() => {
-            setShowbtn(false);
-          }}
-        >
+      <div
+        className="cardProduct"
+        onMouseOver={() => {
+          setShowbtn(true);
+        }}
+        onMouseLeave={() => {
+          setShowbtn(false);
+        }}
+      >
+        {" "}
+        <Link to={`/product/${product._id}`}>
           <div className="imgDiv">
             <Image
               className="imgProduct"
@@ -47,48 +48,45 @@ const CardProduct = ({ product }) => {
               src={product.images[0]}
             />
           </div>
-          <div className="bottomcard">
-            {console.log(product.name.length)}
-            <span>
-              {product.name.length > 18
-                ? product.name.slice(0, 18) + "..."
-                : product.name}
-            </span>
+        </Link>
+        <div className="bottomcard">
+          {console.log(product.name.length)}
+          <span>
+            {product.name.length > 18
+              ? product.name.slice(0, 18) + "..."
+              : product.name}
+          </span>
 
-            {Incart ? (
-              <HiShoppingCart
-                onClick={() => {
-                  removeFromCartHandler(product._id);
-                  setIncart(false);
-                }}
-                className="iconFav"
-                size="26"
-              />
-            ) : (
-              <HiOutlineShoppingCart
-                className="iconFav"
-                color="#999"
-                size="26"
-                onClick={addcart}
-              />
-            )}
+          {Incart ? (
+            <HiShoppingCart
+              onClick={() => {
+                removeFromCartHandler(product._id);
+                setIncart(false);
+              }}
+              className="iconFav"
+              size="26"
+            />
+          ) : (
+            <HiOutlineShoppingCart
+              className="iconFav"
+              color="#999"
+              size="26"
+              onClick={addcart}
+            />
+          )}
 
-            <div className="productpricecard"> {`${product.price} $`}</div>
-            <div className="Rating">
-              <Rating
-                value={product.rating}
-                text={`${product.numReviews} reviews`}
-              />
-            </div>
+          <div className="productpricecard"> {`${product.price} $`}</div>
+          <div className="Rating">
+            <Rating
+              value={product.rating}
+              text={`${product.numReviews} reviews`}
+            />
           </div>
-
-          <button
-            className={showbtn ? "QuickView QuickViewActive" : "QuickView"}
-          >
-            View Details
-          </button>
         </div>
-      </Link>
+        <button className={showbtn ? "QuickView QuickViewActive" : "QuickView"}>
+          View Details
+        </button>
+      </div>
     </>
   );
 };
