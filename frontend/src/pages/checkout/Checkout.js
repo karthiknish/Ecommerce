@@ -18,7 +18,7 @@ const Checkout = ({ history }) => {
   const [city, setCity] = useState(shippingAddress.city);
   const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
   const [country, setCountry] = useState(
-    shippingAddress.country.length ? shippingAddress.country : "Maroc"
+    shippingAddress.country ? shippingAddress.country : "Maroc"
   );
   const [Payment, setPayment] = useState("Card");
 
