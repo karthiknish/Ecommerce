@@ -2,7 +2,7 @@
 
 ### the main objectif of this projet was to make a smooth Ecommerce website that handles both sides (client and admin).
 
-#### In this project we (me,soufian zaam and souhail ouabou) have worked with :
+#### In this project I have worked with :
 
 1. Mern stack :
 
